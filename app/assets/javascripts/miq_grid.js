@@ -5,7 +5,11 @@
     var table = $(this);
     var checkall = table.find('thead > tr > th > input.checkall');
     var checkboxes = table.find("tbody > tr > td > input[type='checkbox']");
-
+    
+    //Disable the domain priority edit button when domains count is less than or equal to 1
+    if (table.attr('id')=='ns_list_grid' && checkboxes.length<=1) {
+      $('[id$=miq_ae_domain_priority_edit]').parent().addClass('disabled');
+    }  
     // table-selectable
     if (table.hasClass('table-clickable')) {
       var url = table.find('tbody').data('click-url');

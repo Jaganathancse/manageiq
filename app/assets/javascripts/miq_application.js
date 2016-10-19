@@ -1578,6 +1578,19 @@ function miqInitMainContent() {
   $('#main-content').css('height', 'calc(100% - ' + height + 'px)')
 }
 
+//Function to disable the domain priority edit button when domains count is less than or equal to 1
+function miqDisableDomainPriorityEditButton() {
+  var table = $('#ns_list_grid');
+  if (table != 'undefined') {
+    var checkboxes = table.find("tbody > tr > td > input[type='checkbox']");
+    if (checkboxes.length<=1) {
+      $('[id$=miq_ae_domain_priority_edit]').parent().addClass('disabled');
+    } else {
+      $('[id$=miq_ae_domain_priority_edit]').parent().removeClass('disabled');
+    }
+  }
+}
+
 function miqHideSearchClearButton() {
   // Hide the clear button if the search input is empty
   $(".search-pf .has-clear .clear").each(function() {

@@ -258,6 +258,9 @@ ManageIQ.explorer.processReplaceRightCell = function(data) {
   miqInitMainContent();
   miqInitAccordions();
 
+  //Disable the domain priority edit button when domains count is less than or equal to 1
+  miqDisableDomainPriorityEditButton();
+
   if (data.hideModal) { $('#quicksearchbox').modal('hide'); }
   if (data.initAccords) { miqInitAccordions(); }
 
